@@ -163,7 +163,7 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('In The Air')"
+              @click="triger('Ball Is In The Air')"
               ><div class="d-flex flex-column">
                 <span>In The Air</span><v-divider></v-divider>(i)
               </div></v-btn
@@ -218,7 +218,7 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Covers')"
+              @click="triger('Covers Are Coming')"
               ><div class="d-flex flex-column">
                 <span>Covers</span><v-divider></v-divider>(c)
               </div></v-btn
