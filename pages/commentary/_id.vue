@@ -23,18 +23,38 @@
           <v-switch v-model="switch3" class="ml-2"></v-switch>
         </div>
         <v-row>
-          <v-col md="2">
+          <v-col cols="6">
             <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
+              class="buttonsize large"
+              x-large
               @click="triger('Ball Start')"
               ><div class="d-flex flex-column">
                 <span>Ball Start</span><v-divider></v-divider>(.)
               </div></v-btn
             >
           </v-col>
-          <v-col md="2">
+          <v-col cols="6">
+            <v-btn class="buttonsize large" x-large @click="triger('1 Run')"
+              ><div class="d-flex flex-column">
+                <span>1 Run</span><v-divider></v-divider>(1)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col cols="6">
+            <v-btn class="buttonsize large" x-large @click="triger('4 Runs')"
+              ><div class="d-flex flex-column">
+                <span>4 Runs</span><v-divider></v-divider>(4)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col cols="6">
+            <v-btn class="buttonsize large" x-large @click="triger('Wicket')"
+              ><div class="d-flex flex-column">
+                <span>Wicket</span><v-divider></v-divider>(5)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
             <v-btn
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
@@ -45,18 +65,7 @@
               </div></v-btn
             >
           </v-col>
-          <v-col md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('1 Run')"
-              ><div class="d-flex flex-column">
-                <span>1 Run</span><v-divider></v-divider>(1)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col md="2">
+          <v-col sm="4" md="2">
             <v-btn
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
@@ -67,7 +76,7 @@
               </div></v-btn
             >
           </v-col>
-          <v-col md="2">
+          <v-col sm="4" md="2">
             <v-btn
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
@@ -78,18 +87,7 @@
               </div></v-btn
             >
           </v-col>
-          <v-col md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('4 Runs')"
-              ><div class="d-flex flex-column">
-                <span>4 Runs</span><v-divider></v-divider>(4)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col md="2">
+          <v-col sm="4" md="2">
             <v-btn
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
@@ -100,18 +98,7 @@
               </div></v-btn
             >
           </v-col>
-          <v-col md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Wicket')"
-              ><div class="d-flex flex-column">
-                <span>Wicket</span><v-divider></v-divider>(5)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col md="2">
+          <v-col sm="4" md="2">
             <v-btn
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
@@ -122,7 +109,7 @@
               </div></v-btn
             >
           </v-col>
-          <v-col md="2">
+          <v-col sm="4" md="2">
             <v-btn
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
@@ -133,7 +120,7 @@
               </div></v-btn
             >
           </v-col>
-          <v-col md="2">
+          <v-col sm="4" md="2">
             <v-btn
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
@@ -141,6 +128,116 @@
               @click="triger('Freehit')"
               ><div class="d-flex flex-column">
                 <span>Freehit</span><v-divider></v-divider>(-)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Third Umpire')"
+              ><div class="d-flex flex-column">
+                <span>Third Umpire</span><v-divider></v-divider>(t)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Not Out')"
+              ><div class="d-flex flex-column">
+                <span>Not Out</span><v-divider></v-divider>(n)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Appeal')"
+              ><div class="d-flex flex-column">
+                <span>Appeal</span><v-divider></v-divider>(a)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('In The Air')"
+              ><div class="d-flex flex-column">
+                <span>In The Air</span><v-divider></v-divider>(i)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Batsman Injured')"
+              ><div class="d-flex flex-column">
+                <span>Batsman Injured</span><v-divider></v-divider>(b)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Baller Injured')"
+              ><div class="d-flex flex-column">
+                <span>Baller injured</span><v-divider></v-divider>(o)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Rain')"
+              ><div class="d-flex flex-column">
+                <span>Rain</span><v-divider></v-divider>(r)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Heavy Rain')"
+              ><div class="d-flex flex-column">
+                <span>Heavy Rain</span><v-divider></v-divider>(h)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Covers')"
+              ><div class="d-flex flex-column">
+                <span>Covers</span><v-divider></v-divider>(c)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Players Are Coming')"
+              ><div class="d-flex flex-column">
+                <span>Players Are Coming</span><v-divider></v-divider>(p)
               </div></v-btn
             >
           </v-col>
@@ -196,6 +293,36 @@ export default {
         if (e.key === '-') {
           this.triger('Freehit')
         }
+        if (e.key === 'T' || e.key === 't') {
+          this.triger('Third Umpire')
+        }
+        if (e.key === 'N' || e.key === 'n') {
+          this.triger('Not Out')
+        }
+        if (e.key === 'A' || e.key === 'a') {
+          this.triger('Appeal')
+        }
+        if (e.key === 'I' || e.key === 'i') {
+          this.triger('In The Air')
+        }
+        if (e.key === 'B' || e.key === 'b') {
+          this.triger('Batsman Injured')
+        }
+        if (e.key === 'O' || e.key === 'o') {
+          this.triger('Baller Injured')
+        }
+        if (e.key === 'R' || e.key === 'r') {
+          this.triger('Rain')
+        }
+        if (e.key === 'H' || e.key === 'h') {
+          this.triger('Haevy Rain')
+        }
+        if (e.key === 'C' || e.key === 'c') {
+          this.triger('Covers')
+        }
+        if (e.key === 'P' || e.key === 'p') {
+          this.triger('Players Are Coming')
+        }
       }
     }
     document.addEventListener('keydown', this._keyListener.bind(this))
@@ -248,11 +375,9 @@ export default {
   color: #000000;
 }
 .buttonsize {
-  width: 130px;
+  width: 100%;
 }
-@media only screen and (max-width: 600px) {
-  .buttonsize {
-    width: 110px;
-  }
+.large {
+  height: 60px !important;
 }
 </style>
