@@ -185,9 +185,9 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Baller Injured')"
+              @click="triger('Bowler Injured')"
               ><div class="d-flex flex-column">
-                <span>Baller injured</span><v-divider></v-divider>(o)
+                <span>Bowler injured</span><v-divider></v-divider>(o)
               </div></v-btn
             >
           </v-col>
@@ -303,7 +303,7 @@ export default {
           this.triger('Batsman Injured')
         }
         if (e.key === 'O' || e.key === 'o') {
-          this.triger('Baller Injured')
+          this.triger('Bowler Injured')
         }
         if (e.key === 'R' || e.key === 'r') {
           this.triger('Rain')
