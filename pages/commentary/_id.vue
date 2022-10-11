@@ -1,14 +1,8 @@
 <template>
   <div>
     <div class="index2">
-      <v-btn outlined
-        ><v-icon
-          dark
-          center
-          class="my-3"
-          @click="$router.push({ path: '/commentary' })"
-          >mdi-backburger</v-icon
-        ></v-btn
+      <v-btn outlined @click="$router.push({ path: '/commentary' })"
+        ><v-icon dark center class="my-3">mdi-backburger</v-icon></v-btn
       >
       <div class="text1 mt-3">{{ $route.query.name }}</div>
       <div class="d-flex mt-3">
