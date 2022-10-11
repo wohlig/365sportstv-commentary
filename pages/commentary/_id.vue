@@ -28,6 +28,13 @@
             >
           </v-col>
           <v-col cols="6">
+            <v-btn class="buttonsize large" x-large @click="triger('0 Runs')"
+              ><div class="d-flex flex-column">
+                <span>0 RUns</span><v-divider></v-divider>(0)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col cols="6">
             <v-btn class="buttonsize large" x-large @click="triger('1 Run')"
               ><div class="d-flex flex-column">
                 <span>1 Run</span><v-divider></v-divider>(1)
@@ -35,9 +42,23 @@
             >
           </v-col>
           <v-col cols="6">
+            <v-btn class="buttonsize large" x-large @click="triger('2 Runs')"
+              ><div class="d-flex flex-column">
+                <span>2 Runs</span><v-divider></v-divider>(2)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col cols="6">
             <v-btn class="buttonsize large" x-large @click="triger('4 Runs')"
               ><div class="d-flex flex-column">
                 <span>4 Runs</span><v-divider></v-divider>(4)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col cols="6">
+            <v-btn class="buttonsize large" x-large @click="triger('6 Runs')"
+              ><div class="d-flex flex-column">
+                <span>6 Runs</span><v-divider></v-divider>(6)
               </div></v-btn
             >
           </v-col>
@@ -53,42 +74,9 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('0 Runs')"
-              ><div class="d-flex flex-column">
-                <span>0 RUns</span><v-divider></v-divider>(0)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('2 Runs')"
-              ><div class="d-flex flex-column">
-                <span>2 Runs</span><v-divider></v-divider>(2)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('3 Runs')"
               ><div class="d-flex flex-column">
                 <span>3 Runs</span><v-divider></v-divider>(3)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('6 Runs')"
-              ><div class="d-flex flex-column">
-                <span>6 Runs</span><v-divider></v-divider>(6)
               </div></v-btn
             >
           </v-col>
