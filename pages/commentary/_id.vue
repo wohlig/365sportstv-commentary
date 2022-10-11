@@ -303,7 +303,7 @@ export default {
           this.triger('Appeal')
         }
         if (e.key === 'I' || e.key === 'i') {
-          this.triger('In The Air')
+          this.triger('Ball Is In The Air')
         }
         if (e.key === 'B' || e.key === 'b') {
           this.triger('Batsman Injured')
@@ -315,10 +315,10 @@ export default {
           this.triger('Rain')
         }
         if (e.key === 'H' || e.key === 'h') {
-          this.triger('Haevy Rain')
+          this.triger('Heavy Rain')
         }
         if (e.key === 'C' || e.key === 'c') {
-          this.triger('Covers')
+          this.triger('Covers Are Coming')
         }
         if (e.key === 'P' || e.key === 'p') {
           this.triger('Players Are Coming')
