@@ -69,14 +69,43 @@
               </div></v-btn
             >
           </v-col>
+          <v-col cols="6">
+            <v-btn class="buttonsize large" x-large @click="triger('Appeal')"
+              ><div class="d-flex flex-column">
+                <span>Appeal</span><v-divider></v-divider>(a)
+              </div></v-btn
+            >
+          </v-col>
           <v-col sm="4" md="2">
             <v-btn
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('3 Runs')"
+              @click="triger('Third Umpire')"
               ><div class="d-flex flex-column">
-                <span>3 Runs</span><v-divider></v-divider>(3)
+                <span>Third Umpire</span><v-divider></v-divider>(t)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Not Out')"
+              ><div class="d-flex flex-column">
+                <span>Not Out</span><v-divider></v-divider>(n)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Ball Is In The Air')"
+              ><div class="d-flex flex-column">
+                <span>In The Air</span><v-divider></v-divider>(i)
               </div></v-btn
             >
           </v-col>
@@ -118,42 +147,9 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Third Umpire')"
+              @click="triger('3 Runs')"
               ><div class="d-flex flex-column">
-                <span>Third Umpire</span><v-divider></v-divider>(t)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Not Out')"
-              ><div class="d-flex flex-column">
-                <span>Not Out</span><v-divider></v-divider>(n)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Appeal')"
-              ><div class="d-flex flex-column">
-                <span>Appeal</span><v-divider></v-divider>(a)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Ball Is In The Air')"
-              ><div class="d-flex flex-column">
-                <span>In The Air</span><v-divider></v-divider>(i)
+                <span>3 Runs</span><v-divider></v-divider>(3)
               </div></v-btn
             >
           </v-col>
@@ -263,7 +259,7 @@ export default {
         if (e.key === '6') {
           this.triger('6 Runs')
         }
-        if (e.key === '5') {
+        if (e.key === '+') {
           this.triger('Wicket')
         }
         if (e.key === '/') {
@@ -281,7 +277,7 @@ export default {
         if (e.key === 'N' || e.key === 'n') {
           this.triger('Not Out')
         }
-        if (e.key === 'A' || e.key === 'a') {
+        if (e.key === '5') {
           this.triger('Appeal')
         }
         if (e.key === 'I' || e.key === 'i') {
