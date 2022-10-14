@@ -181,9 +181,53 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Fast Bowler')"
+              ><div class="d-flex flex-column">
+                <span>Fast Bowler</span><v-divider></v-divider>(f)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Spin Bowler')"
+              ><div class="d-flex flex-column">
+                <span>Spin Bowler</span><v-divider></v-divider>(s)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Break')"
               ><div class="d-flex flex-column">
                 <span>Break</span><v-divider></v-divider>(k)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Clear')"
+              ><div class="d-flex flex-column">
+                <span>Clear</span><v-divider></v-divider>(l)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Good Night')"
+              ><div class="d-flex flex-column">
+                <span>Good Night</span><v-divider></v-divider>(g)
               </div></v-btn
             >
           </v-col>
@@ -262,7 +306,7 @@
 <script>
 import axios from 'axios'
 export default {
-  middleware: "authenticated",
+  middleware: 'authenticated',
   data() {
     return {
       switch1: false,
@@ -324,6 +368,15 @@ export default {
         if (e.key === 'I' || e.key === 'i') {
           this.triger('In The Air')
         }
+        if (e.key === 'L' || e.key === 'l') {
+          this.triger('Clear')
+        }
+        if (e.key === 'F' || e.key === 'f') {
+          this.triger('Fast Bowler')
+        }
+        if (e.key === 'S' || e.key === 's') {
+          this.triger('Spin Bowler')
+        }
         if (e.key === 'B' || e.key === 'b') {
           this.triger('Batsman Injured')
         }
@@ -348,6 +401,9 @@ export default {
         if (e.key === 'K' || e.key === 'k') {
           this.triger('Break')
         }
+        if (e.key === 'G' || e.key === 'g') {
+          this.triger('Good Night')
+        }
       }
     }
     document.addEventListener('keydown', this._keyListener.bind(this))
@@ -366,6 +422,7 @@ export default {
           com: com,
           text: this.switch2,
           sound: this.switch1,
+          id: this.$route.params.id,
         }
         const result = await axios.post(`${socket_url}/callSocket`, obj2, {
           headers: {
