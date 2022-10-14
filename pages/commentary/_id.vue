@@ -4,15 +4,15 @@
       <v-btn outlined @click="$router.push({ path: '/commentary' })"
         ><v-icon dark center class="my-3">mdi-backburger</v-icon></v-btn
       >
-      <div class="text1 mt-3">{{ $route.query.name }}</div>
-      <div class="d-flex mt-3">
+      <div class="text1 mt-1">{{ $route.query.name }}</div>
+      <div class="d-flex mt-1">
         <p class="mr-2">Sound:</p>
         <v-switch v-model="switch1" class="ml-2 mr-10"></v-switch>
         <p class="mx-2">Text:</p>
         <v-switch class="mx-2" v-model="switch2"></v-switch>
       </div>
       <div v-if="switch1 || switch2">
-        <div class="d-flex mt-3">
+        <div class="d-flex">
           <p class="mr-2">Shortcuts Enabled:</p>
           <v-switch v-model="switch3" class="ml-2"></v-switch>
         </div>
@@ -81,7 +81,7 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Ball Stop')"
+              @click="triger('Bowler Stop')"
               ><div class="d-flex flex-column">
                 <span>Ball Stop</span><v-divider></v-divider>(.)
               </div></v-btn
@@ -158,9 +158,9 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Freehit')"
+              @click="triger('Free Hit')"
               ><div class="d-flex flex-column">
-                <span>Freehit</span><v-divider></v-divider>(9)
+                <span>Free Hit</span><v-divider></v-divider>(9)
               </div></v-btn
             >
           </v-col>
@@ -183,6 +183,17 @@
               @click="triger('Sorry')"
               ><div class="d-flex flex-column">
                 <span>Sorry</span><v-divider></v-divider>(-)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Break')"
+              ><div class="d-flex flex-column">
+                <span>Break</span><v-divider></v-divider>(k)
               </div></v-btn
             >
           </v-col>
@@ -275,7 +286,7 @@ export default {
           this.triger('Ball Start')
         }
         if (e.key === '.') {
-          this.triger('Ball Stop')
+          this.triger('Bowler Stop')
         }
         if (e.key === '0') {
           this.triger('0 Runs')
@@ -305,7 +316,7 @@ export default {
           this.triger('No Ball')
         }
         if (e.key === '9') {
-          this.triger('Freehit')
+          this.triger('Free Hit')
         }
         if (e.key === '/') {
           this.triger('Appeal')
@@ -340,8 +351,11 @@ export default {
         if (e.key === 'P' || e.key === 'p') {
           this.triger('Players Are Coming')
         }
-        if (e.key === 'e' || e.key === 'e') {
+        if (e.key === 'E' || e.key === 'e') {
           this.triger('Checking')
+        }
+        if (e.key === 'K' || e.key === 'k') {
+          this.triger('Break')
         }
       }
     }
