@@ -63,25 +63,12 @@
           </v-col>
         </v-row>
         <div class="d-flex justify-space-between my-3">
-          <v-btn class="vertical" @click="triger('Ball Start')"><div class="d-flex flex-column" style="font: size 0.7rem;">
-                <span>Start</span><v-divider></v-divider>(Enter)
-              </div></v-btn>
+          <v-btn class="vertical" @click="triger('Ball Start')"
+            ><div class="d-flex flex-column" style="font: size 0.7rem">
+              <span>Start</span><v-divider></v-divider>(Enter)
+            </div></v-btn
+          >
           <div class="d-flex flex-column justify-space-around">
-            <div class="d-flex justify-space-around">
-              <v-btn
-                class="horizontal large mr-1"
-                x-large
-                @click="triger('4 Runs')"
-                ><div class="d-flex flex-column">
-                  <span>4 Runs</span><v-divider></v-divider>(4)
-                </div></v-btn
-              >
-              <v-btn class="horizontal large" x-large @click="triger('6 Runs')"
-                ><div class="d-flex flex-column">
-                  <span>6 Runs</span><v-divider></v-divider>(6)
-                </div></v-btn
-              >
-            </div>
             <div class="d-flex justify-space-around">
               <v-btn
                 class="horizontal large mr-1"
@@ -97,15 +84,34 @@
                 </div></v-btn
               >
             </div>
+            <div class="d-flex justify-space-around">
+              <v-btn
+                class="horizontal large mr-1"
+                x-large
+                @click="triger('4 Runs')"
+                ><div class="d-flex flex-column">
+                  <span>4 Runs</span><v-divider></v-divider>(4)
+                </div></v-btn
+              >
+              <v-btn class="horizontal large" x-large @click="triger('6 Runs')"
+                ><div class="d-flex flex-column">
+                  <span>6 Runs</span><v-divider></v-divider>(6)
+                </div></v-btn
+              >
+            </div>
           </div>
-          <v-btn class="vertical" @click="triger('0 Runs')"><div class="d-flex flex-column">
-                <span>0</span><v-divider></v-divider>(0)
-              </div></v-btn>
+          <v-btn class="vertical" @click="triger('0 Runs')"
+            ><div class="d-flex flex-column">
+              <span>0</span><v-divider></v-divider>(0)
+            </div></v-btn
+          >
         </div>
         <div class="d-flex justify-space-between mb-3">
-          <v-btn class="vertical" @click="triger('1 Run')"><div class="d-flex flex-column">
-                <span>1</span><v-divider></v-divider>(1)
-              </div></v-btn>
+          <v-btn class="vertical" @click="triger('1 Run')"
+            ><div class="d-flex flex-column">
+              <span>1</span><v-divider></v-divider>(1)
+            </div></v-btn
+          >
           <div class="d-flex flex-column justify-space-around">
             <div class="d-flex justify-space-around">
               <v-btn
@@ -141,9 +147,11 @@
               >
             </div>
           </div>
-          <v-btn class="vertical" @click="triger('2 Runs')"><div class="d-flex flex-column">
-                <span>2</span><v-divider></v-divider>(2)
-              </div></v-btn>
+          <v-btn class="vertical" @click="triger('2 Runs')"
+            ><div class="d-flex flex-column">
+              <span>2</span><v-divider></v-divider>(2)
+            </div></v-btn
+          >
         </div>
         <v-row>
           <v-col sm="4" md="2">
@@ -401,6 +409,7 @@ export default {
 }
 .vertical {
   height: 200px !important;
+  font-weight: 800;
 }
 .horizontal {
   width: 30vw;
