@@ -141,9 +141,15 @@
   margin-right: 2vw;
 }
 .index2 {
-  margin-top: 25px;
+  margin-top: 5px;
   margin-left: 1.5vw;
   margin-right: 1.5vw;
+}
+@media only screen and (max-width: 600px){
+  .index2{
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+  }
 }
 .layout {
   display: flex;
@@ -328,4 +334,7 @@ button.v-btn.v-date-picker-table__current.v-btn--rounded.v-btn--outlined.theme--
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.col {
+  padding: 7px !important;
 }

@@ -53,7 +53,7 @@ export default {
   },
   mixins: [validationMixin],
   created() {
-    localStorage.accessToken = ''
+    localStorage.accessToken = undefined
   },
   methods: {
     async callLoginApi() {

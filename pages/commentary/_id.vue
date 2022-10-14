@@ -1,81 +1,159 @@
 <template>
   <div>
     <div class="index2">
-      <v-btn outlined
-        ><v-icon
-          dark
-          center
-          class="my-3"
-          @click="$router.push({ path: '/commentary' })"
-          >mdi-backburger</v-icon
-        ></v-btn
+      <v-btn outlined @click="$router.push({ path: '/commentary' })"
+        ><v-icon dark center class="my-3">mdi-backburger</v-icon></v-btn
       >
-      <div class="text1 mt-3">{{ $route.query.name }}</div>
-      <div class="d-flex mt-3">
+      <div class="text1 mt-1">{{ $route.query.name }}</div>
+      <div class="d-flex mt-1">
         <p class="mr-2">Sound:</p>
         <v-switch v-model="switch1" class="ml-2 mr-10"></v-switch>
         <p class="mx-2">Text:</p>
         <v-switch class="mx-2" v-model="switch2"></v-switch>
       </div>
       <div v-if="switch1 || switch2">
-        <div class="d-flex mt-3">
+        <div class="d-flex">
           <p class="mr-2">Shortcuts Enabled:</p>
           <v-switch v-model="switch3" class="ml-2"></v-switch>
         </div>
         <v-row>
-          <v-col cols="6">
-            <v-btn
-              class="buttonsize large"
-              x-large
-              @click="triger('Ball Start')"
-              ><div class="d-flex flex-column">
-                <span>Ball Start</span><v-divider></v-divider>(.)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col cols="6">
-            <v-btn class="buttonsize large" x-large @click="triger('1 Run')"
-              ><div class="d-flex flex-column">
-                <span>1 Run</span><v-divider></v-divider>(1)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col cols="6">
-            <v-btn class="buttonsize large" x-large @click="triger('4 Runs')"
-              ><div class="d-flex flex-column">
-                <span>4 Runs</span><v-divider></v-divider>(4)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col cols="6">
-            <v-btn class="buttonsize large" x-large @click="triger('Wicket')"
-              ><div class="d-flex flex-column">
-                <span>Wicket</span><v-divider></v-divider>(5)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
+          <v-col sm="6" md="6" lg="3">
             <v-btn
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('0 Runs')"
+              @click="triger('Third Umpire')"
               ><div class="d-flex flex-column">
-                <span>0 RUns</span><v-divider></v-divider>(0)
+                <span>Third Umpire</span><v-divider></v-divider>(t)
               </div></v-btn
             >
           </v-col>
-          <v-col sm="4" md="2">
+          <v-col sm="6" md="6" lg="3">
             <v-btn
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('2 Runs')"
+              @click="triger('Not Out')"
               ><div class="d-flex flex-column">
-                <span>2 Runs</span><v-divider></v-divider>(2)
+                <span>Not Out</span><v-divider></v-divider>(*)
               </div></v-btn
             >
           </v-col>
+          <v-col sm="6" md="6" lg="3">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Checking')"
+              ><div class="d-flex flex-column">
+                <span>Checking</span><v-divider></v-divider>(e)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="6" md="6" lg="3">
+            <v-btn
+              class="buttonsize"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('In The Air')"
+              ><div class="d-flex flex-column">
+                <span>In The Air</span><v-divider></v-divider>(i)
+              </div></v-btn
+            >
+          </v-col>
+        </v-row>
+        <div class="d-flex justify-space-between my-3">
+          <v-btn class="vertical" @click="triger('Ball Start')"
+            ><div class="d-flex flex-column" style="font: size 0.7rem">
+              <span>Start</span><v-divider></v-divider>(Enter)
+            </div></v-btn
+          >
+          <div class="d-flex flex-column justify-space-around">
+            <div class="d-flex justify-space-around">
+              <v-btn
+                class="horizontal large mr-1"
+                x-large
+                @click="triger('Wicket')"
+                ><div class="d-flex flex-column">
+                  <span>Wicket</span><v-divider></v-divider>(5)
+                </div></v-btn
+              >
+              <v-btn class="horizontal large" x-large @click="triger('Appeal')"
+                ><div class="d-flex flex-column">
+                  <span>Appeal</span><v-divider></v-divider>(/)
+                </div></v-btn
+              >
+            </div>
+            <div class="d-flex justify-space-around">
+              <v-btn
+                class="horizontal large mr-1"
+                x-large
+                @click="triger('4 Runs')"
+                ><div class="d-flex flex-column">
+                  <span>4 Runs</span><v-divider></v-divider>(4)
+                </div></v-btn
+              >
+              <v-btn class="horizontal large" x-large @click="triger('6 Runs')"
+                ><div class="d-flex flex-column">
+                  <span>6 Runs</span><v-divider></v-divider>(6)
+                </div></v-btn
+              >
+            </div>
+          </div>
+          <v-btn class="vertical" @click="triger('0 Runs')"
+            ><div class="d-flex flex-column">
+              <span>0</span><v-divider></v-divider>(0)
+            </div></v-btn
+          >
+        </div>
+        <div class="d-flex justify-space-between mb-3">
+          <v-btn class="vertical" @click="triger('1 Run')"
+            ><div class="d-flex flex-column">
+              <span>1</span><v-divider></v-divider>(1)
+            </div></v-btn
+          >
+          <div class="d-flex flex-column justify-space-around">
+            <div class="d-flex justify-space-around">
+              <v-btn
+                class="horizontal large mr-1"
+                x-large
+                @click="triger('Wide')"
+                ><div class="d-flex flex-column">
+                  <span>Wide</span><v-divider></v-divider>(7)
+                </div></v-btn
+              >
+              <v-btn class="horizontal large" x-large @click="triger('No Ball')"
+                ><div class="d-flex flex-column">
+                  <span>No Ball</span><v-divider></v-divider>(8)
+                </div></v-btn
+              >
+            </div>
+            <div class="d-flex justify-space-around">
+              <v-btn
+                class="horizontal large mr-1"
+                x-large
+                @click="triger('Free Hit')"
+                ><div class="d-flex flex-column">
+                  <span>Free Hit</span><v-divider></v-divider>(9)
+                </div></v-btn
+              >
+              <v-btn
+                class="horizontal large"
+                x-large
+                @click="triger('Bowler Stop')"
+                ><div class="d-flex flex-column">
+                  <span>Ball Stop</span><v-divider></v-divider>(.)
+                </div></v-btn
+              >
+            </div>
+          </div>
+          <v-btn class="vertical" @click="triger('2 Runs')"
+            ><div class="d-flex flex-column">
+              <span>2</span><v-divider></v-divider>(2)
+            </div></v-btn
+          >
+        </div>
+        <v-row>
           <v-col sm="4" md="2">
             <v-btn
               class="buttonsize"
@@ -92,9 +170,9 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('6 Runs')"
+              @click="triger('Sorry')"
               ><div class="d-flex flex-column">
-                <span>6 Runs</span><v-divider></v-divider>(6)
+                <span>Sorry</span><v-divider></v-divider>(-)
               </div></v-btn
             >
           </v-col>
@@ -103,75 +181,9 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Wide')"
+              @click="triger('Break')"
               ><div class="d-flex flex-column">
-                <span>Wide</span><v-divider></v-divider>(/)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('No Ball')"
-              ><div class="d-flex flex-column">
-                <span>No Ball</span><v-divider></v-divider>(*)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Freehit')"
-              ><div class="d-flex flex-column">
-                <span>Freehit</span><v-divider></v-divider>(-)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Third Umpire')"
-              ><div class="d-flex flex-column">
-                <span>Third Umpire</span><v-divider></v-divider>(t)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Not Out')"
-              ><div class="d-flex flex-column">
-                <span>Not Out</span><v-divider></v-divider>(n)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Appeal')"
-              ><div class="d-flex flex-column">
-                <span>Appeal</span><v-divider></v-divider>(a)
-              </div></v-btn
-            >
-          </v-col>
-          <v-col sm="4" md="2">
-            <v-btn
-              class="buttonsize"
-              :large="$vuetify.breakpoint.mobile"
-              :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('In The Air')"
-              ><div class="d-flex flex-column">
-                <span>In The Air</span><v-divider></v-divider>(i)
+                <span>Break</span><v-divider></v-divider>(k)
               </div></v-btn
             >
           </v-col>
@@ -191,9 +203,9 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Baller Injured')"
+              @click="triger('Bowler Injured')"
               ><div class="d-flex flex-column">
-                <span>Baller injured</span><v-divider></v-divider>(o)
+                <span>Bowler injured</span><v-divider></v-divider>(o)
               </div></v-btn
             >
           </v-col>
@@ -224,7 +236,7 @@
               class="buttonsize"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
-              @click="triger('Covers')"
+              @click="triger('Covers Are Coming')"
               ><div class="d-flex flex-column">
                 <span>Covers</span><v-divider></v-divider>(c)
               </div></v-btn
@@ -250,6 +262,7 @@
 <script>
 import axios from 'axios'
 export default {
+  middleware: "authenticated",
   data() {
     return {
       switch1: false,
@@ -260,8 +273,11 @@ export default {
   mounted() {
     this._keyListener = function (e) {
       if (this.switch3 && (this.switch1 || this.switch2)) {
-        if (e.key === '.') {
+        if (e.key === 'Enter') {
           this.triger('Ball Start')
+        }
+        if (e.key === '.') {
+          this.triger('Bowler Stop')
         }
         if (e.key === '0') {
           this.triger('0 Runs')
@@ -284,23 +300,26 @@ export default {
         if (e.key === '5') {
           this.triger('Wicket')
         }
-        if (e.key === '/') {
+        if (e.key === '7') {
           this.triger('Wide')
         }
-        if (e.key === '*') {
+        if (e.key === '8') {
           this.triger('No Ball')
         }
+        if (e.key === '9') {
+          this.triger('Free Hit')
+        }
+        if (e.key === '/') {
+          this.triger('Appeal')
+        }
         if (e.key === '-') {
-          this.triger('Freehit')
+          this.triger('Sorry')
         }
         if (e.key === 'T' || e.key === 't') {
           this.triger('Third Umpire')
         }
-        if (e.key === 'N' || e.key === 'n') {
+        if (e.key === '*') {
           this.triger('Not Out')
-        }
-        if (e.key === 'A' || e.key === 'a') {
-          this.triger('Appeal')
         }
         if (e.key === 'I' || e.key === 'i') {
           this.triger('In The Air')
@@ -309,19 +328,25 @@ export default {
           this.triger('Batsman Injured')
         }
         if (e.key === 'O' || e.key === 'o') {
-          this.triger('Baller Injured')
+          this.triger('Bowler Injured')
         }
         if (e.key === 'R' || e.key === 'r') {
           this.triger('Rain')
         }
         if (e.key === 'H' || e.key === 'h') {
-          this.triger('Haevy Rain')
+          this.triger('Heavy Rain')
         }
         if (e.key === 'C' || e.key === 'c') {
-          this.triger('Covers')
+          this.triger('Covers Are Coming')
         }
         if (e.key === 'P' || e.key === 'p') {
           this.triger('Players Are Coming')
+        }
+        if (e.key === 'E' || e.key === 'e') {
+          this.triger('Checking')
+        }
+        if (e.key === 'K' || e.key === 'k') {
+          this.triger('Break')
         }
       }
     }
@@ -379,5 +404,16 @@ export default {
 }
 .large {
   height: 60px !important;
+}
+.vertical {
+  width: 10vw;
+}
+.vertical {
+  height: 200px !important;
+  font-weight: 800;
+}
+.horizontal {
+  width: 30vw;
+  height: 95px !important;
 }
 </style>
