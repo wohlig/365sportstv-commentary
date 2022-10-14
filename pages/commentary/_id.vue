@@ -262,6 +262,7 @@
 <script>
 import axios from 'axios'
 export default {
+  middleware: "authenticated",
   data() {
     return {
       switch1: false,

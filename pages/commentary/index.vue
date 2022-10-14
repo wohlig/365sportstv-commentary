@@ -60,6 +60,7 @@
 <script>
 import gameService from '@/service/gameService'
 export default {
+  middleware: "authenticated",
   data() {
     return {
       nanoGames: [],
