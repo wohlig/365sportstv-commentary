@@ -19,7 +19,7 @@
         <v-row>
           <v-col sm="6" md="6" lg="3">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Third Umpire')"
@@ -30,7 +30,7 @@
           </v-col>
           <v-col sm="6" md="6" lg="3">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Not Out')"
@@ -41,7 +41,7 @@
           </v-col>
           <v-col sm="6" md="6" lg="3">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Checking')"
@@ -52,7 +52,7 @@
           </v-col>
           <v-col sm="6" md="6" lg="3">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('In The Air')"
@@ -63,7 +63,7 @@
           </v-col>
         </v-row>
         <div class="d-flex justify-space-between my-3">
-          <v-btn class="vertical" @click="triger('Ball Start')"
+          <v-btn class="vertical clickchange" @click="triger('Ball Start')"
             ><div class="d-flex flex-column" style="font: size 0.7rem">
               <span>Start</span><v-divider></v-divider>(Enter)
             </div></v-btn
@@ -71,14 +71,17 @@
           <div class="d-flex flex-column justify-space-around">
             <div class="d-flex justify-space-around">
               <v-btn
-                class="horizontal large mr-1"
+                class="horizontal clickchange large mr-1"
                 x-large
                 @click="triger('Wicket')"
                 ><div class="d-flex flex-column">
                   <span>Wicket</span><v-divider></v-divider>(5)
                 </div></v-btn
               >
-              <v-btn class="horizontal large" x-large @click="triger('Appeal')"
+              <v-btn
+                class="horizontal clickchange large"
+                x-large
+                @click="triger('Appeal')"
                 ><div class="d-flex flex-column">
                   <span>Appeal</span><v-divider></v-divider>(/)
                 </div></v-btn
@@ -86,28 +89,31 @@
             </div>
             <div class="d-flex justify-space-around">
               <v-btn
-                class="horizontal large mr-1"
+                class="horizontal clickchange large mr-1"
                 x-large
                 @click="triger('4 Runs')"
                 ><div class="d-flex flex-column">
                   <span>4 Runs</span><v-divider></v-divider>(4)
                 </div></v-btn
               >
-              <v-btn class="horizontal large" x-large @click="triger('6 Runs')"
+              <v-btn
+                class="horizontal clickchange large"
+                x-large
+                @click="triger('6 Runs')"
                 ><div class="d-flex flex-column">
                   <span>6 Runs</span><v-divider></v-divider>(6)
                 </div></v-btn
               >
             </div>
           </div>
-          <v-btn class="vertical" @click="triger('0 Runs')"
+          <v-btn class="vertical clickchange" @click="triger('0 Runs')"
             ><div class="d-flex flex-column">
               <span>0</span><v-divider></v-divider>(0)
             </div></v-btn
           >
         </div>
         <div class="d-flex justify-space-between mb-3">
-          <v-btn class="vertical" @click="triger('1 Run')"
+          <v-btn class="vertical clickchange" @click="triger('1 Run')"
             ><div class="d-flex flex-column">
               <span>1</span><v-divider></v-divider>(1)
             </div></v-btn
@@ -115,14 +121,17 @@
           <div class="d-flex flex-column justify-space-around">
             <div class="d-flex justify-space-around">
               <v-btn
-                class="horizontal large mr-1"
+                class="horizontal clickchange large mr-1"
                 x-large
                 @click="triger('Wide')"
                 ><div class="d-flex flex-column">
                   <span>Wide</span><v-divider></v-divider>(7)
                 </div></v-btn
               >
-              <v-btn class="horizontal large" x-large @click="triger('No Ball')"
+              <v-btn
+                class="horizontal clickchange large"
+                x-large
+                @click="triger('No Ball')"
                 ><div class="d-flex flex-column">
                   <span>No Ball</span><v-divider></v-divider>(8)
                 </div></v-btn
@@ -130,7 +139,7 @@
             </div>
             <div class="d-flex justify-space-around">
               <v-btn
-                class="horizontal large mr-1"
+                class="horizontal clickchange large mr-1"
                 x-large
                 @click="triger('Free Hit')"
                 ><div class="d-flex flex-column">
@@ -138,7 +147,7 @@
                 </div></v-btn
               >
               <v-btn
-                class="horizontal large"
+                class="horizontal clickchange large"
                 x-large
                 @click="triger('Bowler Stop')"
                 ><div class="d-flex flex-column">
@@ -147,7 +156,7 @@
               >
             </div>
           </div>
-          <v-btn class="vertical" @click="triger('2 Runs')"
+          <v-btn class="vertical clickchange" @click="triger('2 Runs')"
             ><div class="d-flex flex-column">
               <span>2</span><v-divider></v-divider>(2)
             </div></v-btn
@@ -156,7 +165,18 @@
         <v-row>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Review')"
+              ><div class="d-flex flex-column">
+                <span>Review</span><v-divider></v-divider>(v)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('3 Runs')"
@@ -167,7 +187,7 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Sorry')"
@@ -178,7 +198,7 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Fast Bowler')"
@@ -189,7 +209,7 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Spin Bowler')"
@@ -200,7 +220,7 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Break')"
@@ -211,7 +231,7 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Clear')"
@@ -222,7 +242,7 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Good Night')"
@@ -233,7 +253,7 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Batsman Injured')"
@@ -244,7 +264,7 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Bowler Injured')"
@@ -255,7 +275,7 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Rain')"
@@ -266,7 +286,7 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Heavy Rain')"
@@ -277,7 +297,29 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Match Delayed')"
+              ><div class="d-flex flex-column">
+                <span>Match Delayed</span><v-divider></v-divider>(d)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize clickchange"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="triger('Wet Outfield')"
+              ><div class="d-flex flex-column">
+                <span>Wet Outfield</span><v-divider></v-divider>(w)
+              </div></v-btn
+            >
+          </v-col>
+          <v-col sm="4" md="2">
+            <v-btn
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Covers Are Coming')"
@@ -288,7 +330,7 @@
           </v-col>
           <v-col sm="4" md="2">
             <v-btn
-              class="buttonsize"
+              class="buttonsize clickchange"
               :large="$vuetify.breakpoint.mobile"
               :x-large="!$vuetify.breakpoint.mobile"
               @click="triger('Players Are Coming')"
@@ -403,6 +445,15 @@ export default {
         }
         if (e.key === 'G' || e.key === 'g') {
           this.triger('Good Night')
+        }
+        if (e.key === 'W' || e.key === 'w') {
+          this.triger('Wet Outfield')
+        }
+        if (e.key === 'D' || e.key === 'd') {
+          this.triger('Match Delayed')
+        }
+        if (e.key === 'V' || e.key === 'v') {
+          this.triger('Review')
         }
       }
     }

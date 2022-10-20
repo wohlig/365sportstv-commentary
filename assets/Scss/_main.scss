@@ -145,8 +145,8 @@
   margin-left: 1.5vw;
   margin-right: 1.5vw;
 }
-@media only screen and (max-width: 600px){
-  .index2{
+@media only screen and (max-width: 600px) {
+  .index2 {
     margin-left: 0.5vw;
     margin-right: 0.5vw;
   }
@@ -337,4 +337,7 @@ button.v-btn.v-date-picker-table__current.v-btn--rounded.v-btn--outlined.theme--
 }
 .col {
   padding: 7px !important;
+}
+.clickchange .v-ripple__container {
+  border: 3px solid green;
 }
