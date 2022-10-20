@@ -339,6 +339,17 @@
               </div></v-btn
             >
           </v-col>
+          <v-col cols="12">
+            <v-btn
+              class="buttonsize clickchange"
+              :large="$vuetify.breakpoint.mobile"
+              :x-large="!$vuetify.breakpoint.mobile"
+              @click="customText()"
+              ><div class="d-flex flex-column">
+                <span>Enter Custom Commentary</span><v-divider></v-divider>(x)
+              </div></v-btn
+            >
+          </v-col>
         </v-row>
       </div>
     </div>
@@ -455,6 +466,9 @@ export default {
         if (e.key === 'V' || e.key === 'v') {
           this.triger('Review')
         }
+         if (e.key === 'X' || e.key === 'x') {
+          this.customText()
+        }
       }
     }
     document.addEventListener('keydown', this._keyListener.bind(this))
@@ -493,6 +507,26 @@ export default {
           color: '#D50000',
         })
       }
+    },
+    customText() {
+      if (this.switch3) {
+        var short = true
+        this.switch3 = false
+      }
+      this.$dialog
+        .prompt({
+          text: 'Enter Custom Commentary',
+          title: 'Commentary',
+          textField: {
+            type: 'text',
+          },
+        })
+        .then(async (res) => {
+          if (res) {
+            this.triger(res)
+          }
+          if (short) this.switch3 = true
+        })
     },
   },
 }
