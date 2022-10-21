@@ -18,14 +18,13 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    "@/assets/Scss/_main.scss"  ],
+  css: ['@/assets/Scss/_main.scss'],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '@/plugins/notifier.js' },
     { src: '@/plugins/country-code.js' },
     { src: '@/plugins/filters.js' },
-    { src: "@/plugins/Vuelidate.js" },
+    { src: '@/plugins/Vuelidate.js' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -43,6 +42,10 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'vuetify-dialog/nuxt',
+
+    // Optionally passing options in module configuration
+    ['vuetify-dialog/nuxt', { property: '$dialog' }],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
