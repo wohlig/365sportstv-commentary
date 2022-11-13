@@ -23,7 +23,30 @@
               })
             "
           >
-            <span class="btntext"> Commentary</span>
+            <span class="btntext">Commentary</span>
+          </button>
+        </template>
+      </v-data-table>
+      <div class="text1">Media Games</div>
+      <v-data-table
+        :headers="mediaHeaders"
+        :items="mediaGames"
+        :footer-props="{
+          itemsPerPageOptions: [5, 10, 15, 20, 50],
+          showCurrentPage: true,
+          showFirstLastPage: true,
+        }"
+        class="elevation-1 mt-3 text"
+      >
+        <template v-slot:[`item.Commentary`]="row">
+          <button
+            type="button"
+            class="button"
+            @click="
+              $router.push(`/commentary/${row.item._id}?name=${row.item.name}`)
+            "
+          >
+            <span class="btntext">Commentary</span>
           </button>
         </template>
       </v-data-table>
@@ -46,7 +69,7 @@
               $router.push(`/commentary/${row.item._id}?name=${row.item.name}`)
             "
           >
-            <span class="btntext"> Commentary</span>
+            <span class="btntext">Commentary</span>
           </button>
         </template>
       </v-data-table>
@@ -60,12 +83,23 @@
 <script>
 import gameService from '@/service/gameService'
 export default {
-  middleware: "authenticated",
+  middleware: 'authenticated',
   data() {
     return {
       nanoGames: [],
+      mediaGames: [],
       zoomGames: [],
       nanoHeaders: [
+        {
+          text: 'Name',
+          align: 'start',
+          value: 'name',
+        },
+        { text: 'Stream Names', value: 'streamId', sortable: false },
+        { text: 'Handled By', value: 'handledBy', sortable: false },
+        { text: '', value: 'Commentary', sortable: false },
+      ],
+      mediaHeaders: [
         {
           text: 'Name',
           align: 'start',
@@ -89,6 +123,7 @@ export default {
   },
   created() {
     this.getActiveNanoGamesForCommentary()
+    this.getActiveMediaGamesForCommentary()
     this.getActiveZoomGamesForCommentary()
   },
   methods: {
@@ -97,6 +132,16 @@ export default {
         const result = await gameService.getActiveNanoGamesForCommentary()
         if (result.status == 200) {
           this.nanoGames = result.data
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async getActiveMediaGamesForCommentary() {
+      try {
+        const result = await gameService.getActiveMediaGamesForCommentary()
+        if (result.status == 200) {
+          this.mediaGames = result.data
         }
       } catch (error) {
         console.log(error)
