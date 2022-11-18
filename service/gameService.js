@@ -18,12 +18,12 @@ export default {
       },
     })
   },
-  getActiveZoomGamesForCommentary() {
-    return axios.get(`${ApiUrl}/game/getActiveZoomGamesForCommentary`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: localStorage.accessToken,
-      },
-    })
-  },
+  // getActiveZoomGamesForCommentary() {
+  //   return axios.get(`${ApiUrl}/game/getActiveZoomGamesForCommentary`, {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Authorization: localStorage.accessToken,
+  //     },
+  //   })
+  // },
 }

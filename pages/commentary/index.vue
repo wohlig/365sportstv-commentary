@@ -50,7 +50,7 @@
           </button>
         </template>
       </v-data-table>
-      <div class="text1">Zoom Games</div>
+      <!-- <div class="text1">Zoom Games</div>
       <v-data-table
         :headers="zoomHeaders"
         :items="zoomGames"
@@ -72,7 +72,7 @@
             <span class="btntext">Commentary</span>
           </button>
         </template>
-      </v-data-table>
+      </v-data-table> -->
     </div>
     <div class="d-flex justify-center">
       <v-btn outlined @click="$router.push({ path: '/' })">Logout</v-btn>
@@ -88,7 +88,7 @@ export default {
     return {
       nanoGames: [],
       mediaGames: [],
-      zoomGames: [],
+      // zoomGames: [],
       nanoHeaders: [
         {
           text: 'Name',
@@ -109,16 +109,16 @@ export default {
         { text: 'Handled By', value: 'handledBy', sortable: false },
         { text: '', value: 'Commentary', sortable: false },
       ],
-      zoomHeaders: [
-        {
-          text: 'Name',
-          align: 'start',
-          value: 'name',
-        },
-        { text: 'Meeting Number', value: 'meetings[0]', sortable: false },
-        { text: 'Handled By', value: 'handledBy', sortable: false },
-        { text: '', value: 'Commentary', sortable: false },
-      ],
+      // zoomHeaders: [
+      //   {
+      //     text: 'Name',
+      //     align: 'start',
+      //     value: 'name',
+      //   },
+      //   { text: 'Meeting Number', value: 'meetings[0]', sortable: false },
+      //   { text: 'Handled By', value: 'handledBy', sortable: false },
+      //   { text: '', value: 'Commentary', sortable: false },
+      // ],
     }
   },
   created() {
