@@ -10,6 +10,7 @@
       </div>
       <v-data-table
         v-model="selectedNano"
+        item-key="_id"
         show-select
         :headers="nanoHeaders"
         :items="nanoGames"
@@ -46,6 +47,7 @@
       <div class="text1">Media Games</div>
       <v-data-table
         v-model="selectedMedia"
+        item-key="_id"
         show-select
         :headers="mediaHeaders"
         :items="mediaGames"
