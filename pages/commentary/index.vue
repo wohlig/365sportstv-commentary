@@ -3,7 +3,14 @@
     <div class="index">
       <div class="text1">Cricket Commentary</div>
       <div class="text1 mt-3">Other Games</div>
+      <div class="d-flex justify-center">
+        <v-btn @click="commentaryForSelectedGames()" color="orange" class="mt-3"
+          >Multiple Commentary (Selected)</v-btn
+        >
+      </div>
       <v-data-table
+        v-model="selectedNano"
+        show-select
         :headers="nanoHeaders"
         :items="nanoGames"
         :footer-props="{
@@ -18,9 +25,18 @@
             type="button"
             class="button"
             @click="
-              $router.push({
-                path: `/commentary/${row.item._id}?name=${row.item.name}`,
-              })
+              $router.push(
+                `/commentary/${JSON.stringify({
+                  games: [
+                    {
+                      _id: row.item._id,
+                      name: row.item.name,
+                      text: false,
+                      sound: false,
+                    },
+                  ],
+                })}`
+              )
             "
           >
             <span class="btntext">Commentary</span>
@@ -29,6 +45,8 @@
       </v-data-table>
       <div class="text1">Media Games</div>
       <v-data-table
+        v-model="selectedMedia"
+        show-select
         :headers="mediaHeaders"
         :items="mediaGames"
         :footer-props="{
@@ -43,7 +61,18 @@
             type="button"
             class="button"
             @click="
-              $router.push(`/commentary/${row.item._id}?name=${row.item.name}`)
+              $router.push(
+                `/commentary/${JSON.stringify({
+                  games: [
+                    {
+                      _id: row.item._id,
+                      name: row.item.name,
+                      text: false,
+                      sound: false,
+                    },
+                  ],
+                })}`
+              )
             "
           >
             <span class="btntext">Commentary</span>
@@ -82,12 +111,15 @@
 
 <script>
 import gameService from '@/service/gameService'
+import _ from 'lodash'
 export default {
   middleware: 'authenticated',
   data() {
     return {
       nanoGames: [],
       mediaGames: [],
+      selectedNano: [],
+      selectedMedia: [],
       // zoomGames: [],
       nanoHeaders: [
         {
@@ -124,7 +156,7 @@ export default {
   created() {
     this.getActiveNanoGamesForCommentary()
     this.getActiveMediaGamesForCommentary()
-    this.getActiveZoomGamesForCommentary()
+    // this.getActiveZoomGamesForCommentary()
   },
   methods: {
     async getActiveNanoGamesForCommentary() {
@@ -147,16 +179,38 @@ export default {
         console.log(error)
       }
     },
-    async getActiveZoomGamesForCommentary() {
-      try {
-        const result = await gameService.getActiveZoomGamesForCommentary()
-        if (result.status == 200) {
-          this.zoomGames = result.data
-        }
-      } catch (error) {
-        console.log(error)
+    commentaryForSelectedGames() {
+      const selected = _.concat(this.selectedNano, this.selectedMedia)
+      if (selected.length < 2) {
+        this.$notifier.showMessage({
+          content: 'Select minimum two games for multiple games commentary',
+          color: '#D50000',
+        })
+        return
       }
+      let multipleGames = []
+      _.forEach(selected, (value) => {
+        multipleGames.push({
+          name: value.name,
+          _id: value._id,
+          text: false,
+          sound: false,
+        })
+      })
+      this.$router.push({
+        path: '/commentary/' + JSON.stringify({ games: multipleGames }),
+      })
     },
+    // async getActiveZoomGamesForCommentary() {
+    //   try {
+    //     const result = await gameService.getActiveZoomGamesForCommentary()
+    //     if (result.status == 200) {
+    //       this.zoomGames = result.data
+    //     }
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // },
   },
 }
 </script>

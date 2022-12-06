@@ -4,14 +4,16 @@
       <v-btn outlined @click="$router.push({ path: '/commentary' })"
         ><v-icon dark center class="my-3">mdi-backburger</v-icon></v-btn
       >
-      <div class="text1 mt-1">{{ $route.query.name }}</div>
-      <div class="d-flex mt-1">
-        <p class="mr-2">Sound:</p>
-        <v-switch v-model="switch1" class="ml-2 mr-10"></v-switch>
-        <p class="mx-2">Text:</p>
-        <v-switch class="mx-2" v-model="switch2"></v-switch>
+      <div v-for="item in data" :key="item.id">
+        <div class="text1 mt-3">{{ item.name }}</div>
+        <div class="d-flex mt-1">
+          <p class="mr-2">Sound:</p>
+          <v-switch v-model="item.sound" class="ml-2 mr-10"></v-switch>
+          <p class="mx-2">Text:</p>
+          <v-switch class="mx-2" v-model="item.text"></v-switch>
+        </div>
       </div>
-      <div v-if="switch1 || switch2">
+      <div>
         <div class="d-flex">
           <p class="mr-2">Shortcuts Enabled:</p>
           <v-switch v-model="switch3" class="ml-2"></v-switch>
@@ -358,13 +360,13 @@
 
 <script>
 import axios from 'axios'
+import _ from 'lodash'
 export default {
   middleware: 'authenticated',
   data() {
     return {
-      switch1: false,
-      switch2: false,
       switch3: true,
+      data: JSON.parse(this.$route.params.id).games,
     }
   },
   mounted() {
@@ -466,7 +468,7 @@ export default {
         if (e.key === 'V' || e.key === 'v') {
           this.triger('Review')
         }
-         if (e.key === 'X' || e.key === 'x') {
+        if (e.key === 'X' || e.key === 'x') {
           this.customText()
         }
       }
@@ -478,35 +480,37 @@ export default {
   },
   methods: {
     async triger(com) {
-      try {
-        const socket_url = process.env.NUXT_ENV_SOCKET_URL
-        let obj2 = {}
-        obj2.roomName = 'commentaryRoom-' + this.$route.params.id
-        obj2.eventName = 'commentary'
-        obj2.data = {
-          com: com,
-          text: this.switch2,
-          sound: this.switch1,
-          id: this.$route.params.id,
-        }
-        const result = await axios.post(`${socket_url}/callSocket`, obj2, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        if (result.status == 200) {
+      const socket_url = process.env.NUXT_ENV_SOCKET_URL
+      _.forEach(this.data, async (value) => {
+        try {
+          let obj2 = {}
+          obj2.roomName = 'commentaryRoom-' + value._id
+          obj2.eventName = 'commentary'
+          obj2.data = {
+            com: com,
+            text: value.text,
+            sound: value.sound,
+            id: value._id,
+          }
+          const result = await axios.post(`${socket_url}/callSocket`, obj2, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+          if (result.status == 200) {
+            this.$notifier.showMessage({
+              content: 'Commentary Succesfull',
+              color: '#4CAF50',
+            })
+          }
+        } catch (error) {
+          console.log(error)
           this.$notifier.showMessage({
-            content: 'Commentary Succesfull',
-            color: '#4CAF50',
+            content: 'Something went wrong',
+            color: '#D50000',
           })
         }
-      } catch (error) {
-        console.log(error)
-        this.$notifier.showMessage({
-          content: 'Something went wrong',
-          color: '#D50000',
-        })
-      }
+      })
     },
     customText() {
       if (this.switch3) {
